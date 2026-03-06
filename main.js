@@ -1,5 +1,5 @@
 // Thay đổi nội dung búc thư ở đây
-var letterContent =" CHO DK XIN LOII BÚN 🥺"
+var letterContent =" CHO DK XIN LOII hoặc nội dung dài hơn,mm🥺"
 
 // Tốc độ viết chữ. Số càng nhỏ tốc độ càng nhanh. 50 là tốc độ khá phù hợp
 durationWrite = 50 
