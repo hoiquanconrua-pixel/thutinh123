@@ -1,109 +1,65 @@
-/* --- PHẦN MỚI: MÀN HÌNH KHÓA (AUTH OVERLAY) --- */
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
 
+html, body { height: 100%; width: 100%; overflow: hidden; }
+
+/* ẨN NỘI DUNG CHÍNH */
+.container {
+    display: none; 
+    position: relative;
+    height: 100%; width: 100%;
+    background-color: #fc6885;
+}
+
+.container.show-main { display: block !important; }
+
+/* MÀN HÌNH KHÓA */
 #auth-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(252, 104, 133, 0.7); /* Màu nền hồng giống container */
-    backdrop-filter: blur(15px); /* Hiệu ứng làm mờ hậu cảnh */
-    -webkit-backdrop-filter: blur(15px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Đảm bảo luôn nằm trên trái tim và mây */
-    transition: opacity 0.5s ease;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #fc6885;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9999;
 }
 
 .auth-card {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 40px 30px;
-    border-radius: 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px; border-radius: 30px;
+    text-align: center; width: 90%; max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.auth-icon {
-    width: 80px;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px #fc6885);
-    animation: heartbeat 1.2s infinite; /* Hiệu ứng tim đập */
-}
-
-.auth-card h2 {
-    font-family: "Protest Revolution", sans-serif;
-    color: #f35553;
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.auth-card p {
-    font-family: "Pacifico", cursive;
-    color: #666;
-    margin-bottom: 20px;
-}
+.auth-icon { width: 80px; margin-bottom: 20px; animation: heartbeat 1.2s infinite; }
 
 #password-field {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid #ffd1dc;
-    border-radius: 15px;
-    outline: none;
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 20px;
-    transition: 0.3s;
-}
-
-#password-field:focus {
-    border-color: #fc6885;
-    box-shadow: 0 0 10px rgba(252, 104, 133, 0.3);
+    width: 100%; padding: 15px; border-radius: 15px;
+    border: 2px solid #ffd1dc; margin-bottom: 20px;
+    text-align: center; font-size: 18px; outline: none;
 }
 
 .auth-card button {
-    background-color: #fc6885;
-    color: white;
-    border: none;
-    padding: 12px 40px;
-    border-radius: 50px;
+    background: #fc6885; color: white; border: none;
+    padding: 12px 40px; border-radius: 50px;
     font-family: "Protest Revolution", sans-serif;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(252, 104, 133, 0.4);
+    font-size: 20px; cursor: pointer; transition: 0.3s;
 }
 
-.auth-card button:hover {
-    background-color: #f35553;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(252, 104, 133, 0.6);
-}
-
-/* Hiệu ứng tim đập */
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    15% { transform: scale(1.2); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.15); }
-    60% { transform: scale(1); }
-}
-
-/* Hiệu ứng rung khi sai mật khẩu */
-.shake {
-    animation: shakeAnim 0.5s ease-in-out;
-}
-
+/* HIỆU ỨNG RUNG KHI SAI */
+.shake { animation: shakeAnim 0.5s ease-in-out; }
 @keyframes shakeAnim {
     0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-10px); }
-    40%, 80% { transform: translateX(10px); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
 }
 
-/* Ẩn thanh cuộn khi đang hiện overlay */
-body.locked {
-    overflow: hidden;
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
+
+/* GIỮ NGUYÊN CÁC CSS CŨ CỦA BẠN (paperHeart, boxCloud, cardValentine, v.v.) DƯỚI ĐÂY */
+/* ... copy toàn bộ phần CSS cũ vào đây ... */
